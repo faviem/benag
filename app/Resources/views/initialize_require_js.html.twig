@@ -1,0 +1,13 @@
+{% spaceless %}
+
+{% if config is defined and config is not empty %}
+    {% block configuration %}
+        <script type="text/javascript">var require={{ config|json_encode|raw }};</script>
+    {% endblock configuration %}
+{% endif %}
+
+{% block require_js %}
+     <script type="text/javascript"{% if main is defined and main is not empty %} data-main="{{ main }}"{% endif %} src="{{ asset('js/require.js') }}"></script>
+{% endblock require_js %}
+
+{% endspaceless %}

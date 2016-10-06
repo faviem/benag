@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+{% block container %}
+     
+    <header class="bg-image bg-image-2 well-inset-3">
+        <section class="well well-sm well-sm--inset-2">
+
+            <div class="container text-center">
+                <div class="row ">
+                    <div class="col-md-6 col-md-offset-3 btn-shadow inset-sm-min bg-white round-large">
+                        <h5>Product creation</h5> 
+                    {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                    <button class="btn btn-primary btn-xs round-xl btn-block form-el-offset-1" type="submit">Ajouter</button>    
+                    {{ form_end(form) }}                  
+                    </div>
+                </div>
+                <a class="btn btn-default btn-sm round-xl offset-2" href="{{ path('product_index') }}">
+                    Retour à la liste des projets
+                </a>
+            </div>
+
+        </section>
+    </header>
+{% endblock %}

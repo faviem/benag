@@ -1,0 +1,61 @@
+{% extends 'layout.html.twig' %}
+
+{% block container %}
+    <h1>Commande list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Datecreation</th>
+                <th>Datemiseajour</th>
+                <th>Quantite</th>
+                <th>Unitemesure</th>
+                <th>Prixunit</th>
+                <th>Description</th>
+                <th>Permanent</th>
+                <th>Brouillon</th>
+                <th>Soumis</th>
+                <th>Accepte</th>
+                <th>Annule</th>
+                <th>Livre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td><a href="{{ path('commande_show', { 'id': commande.id }) }}">{{ commande.id }}</a></td>
+                <td>{% if commande.dateCreation %}{{ commande.dateCreation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if commande.dateMiseAjour %}{{ commande.dateMiseAjour|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ commande.quantite }}</td>
+                <td>{{ commande.uniteMesure }}</td>
+                <td>{{ commande.prixUnit }}</td>
+                <td>{{ commande.description }}</td>
+                <td>{% if commande.permanent %}Yes{% else %}No{% endif %}</td>
+                <td>{% if commande.brouillon %}Yes{% else %}No{% endif %}</td>
+                <td>{% if commande.soumis %}Yes{% else %}No{% endif %}</td>
+                <td>{% if commande.accepte %}Yes{% else %}No{% endif %}</td>
+                <td>{% if commande.annule %}Yes{% else %}No{% endif %}</td>
+                <td>{% if commande.livre %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('commande_show', { 'id': commande.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('commande_edit', { 'id': commande.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('commande_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "::layout.html.twig" %}
+{% block stylesheets %}
+    {{ parent()}} 
+    <link rel="stylesheet" href="{{ asset('/bundles/benuser/css/login.css') }}">
+{% endblock %}
+
+{% block header %}
+     {{ parent()}} 
+{% endblock header %}
+
+{% block container %}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    
+    <header class="bg-image bg-image-2 well-inset-3">
+        <section class="well well-sm well-sm--inset-2">
+            <div class="container text-center">
+                <div class="row ">
+                    <div class="col-md-6 col-md-offset-3 btn-shadow inset-sm-min bg-white round-large">
+                {% block fos_user_content %} 
+                {% endblock fos_user_content %} 
+                    </div>
+                </div>
+                <a class="btn btn-default btn-sm round-xl offset-2" href="{{ path('homepage') }}">Retour à l'acceuil</a>
+                
+            </div>
+        </section>
+            <!--End section-->
+    </header>   
+ 
+{% endblock %}

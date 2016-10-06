@@ -1,0 +1,145 @@
+<?php
+
+namespace AppBundle\Entity\User;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+/**
+ * Farmer
+ * @ORM\Entity()
+ */
+class Farmer extends User
+{
+    
+    /**
+     * @var string Nom de votre entreprise ( = celui de votre registre de commerce)
+     *
+     * @ORM\Column(name="farmer_company", type="string", length=45, nullable=false)
+     * @Assert\Length(min="5")
+     */
+    
+    private $nomEntreprise;
+    
+    /**
+     * @var string Vous etes $typeProfile
+     *
+     * @ORM\Column(name="farmer_type_profile", type="string", length=45, nullable=false)
+     * @Assert\Length(min="5")
+     */
+    
+    private $typeProfile;
+    
+    /**
+     * @var string specialisé en $domaine
+     *
+     * @ORM\Column(name="farmer_field", type="string", length=45, nullable=false)
+     * @Assert\Length(min="5")
+     */
+    
+    private $domaine;
+    
+    /**
+     * @var string  Adresse phyique de votre entreprise(Rue, Numero,etc...)
+     *
+     * @ORM\Column(name="farmer_adresse", type="string", length=45, nullable=false)
+     * @Assert\Length(min="5")
+     */
+    
+    private $adresse;
+
+    /**
+     * Set nomEntreprise
+     *
+     * @param string $nomEntreprise
+     *
+     * @return Farmer
+     */
+    public function setNomEntreprise($nomEntreprise)
+    {
+        $this->nomEntreprise = $nomEntreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get nomEntreprise
+     *
+     * @return string
+     */
+    public function getNomEntreprise()
+    {
+        return $this->nomEntreprise;
+    }
+
+    /**
+     * Set typeProfile
+     *
+     * @param string $typeProfile
+     *
+     * @return Farmer
+     */
+    public function setTypeProfile($typeProfile)
+    {
+        $this->typeProfile = $typeProfile;
+
+        return $this;
+    }
+
+    /**
+     * Get typeProfile
+     *
+     * @return string
+     */
+    public function getTypeProfile()
+    {
+        return $this->typeProfile;
+    }
+
+    /**
+     * Set domaine
+     *
+     * @param string $domaine
+     *
+     * @return Farmer
+     */
+    public function setDomaine($domaine)
+    {
+        $this->domaine = $domaine;
+
+        return $this;
+    }
+
+    /**
+     * Get domaine
+     *
+     * @return string
+     */
+    public function getDomaine()
+    {
+        return $this->domaine;
+    }
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return Farmer
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+}

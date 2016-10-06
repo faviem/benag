@@ -1,0 +1,59 @@
+parameters:
+#    security.user_checker.class: Ben\UserBundle\Security\Core\User\UserChecker
+    ben_user.register.form.type.class: Ben\UserBundle\Form\Type\RegistrationFormType
+    ben_user.resetting.form.type.class: Ben\UserBundle\Form\Type\ResettingFormType
+    ben_user.profile.form.type.class: Ben\UserBundle\Form\Type\ProfileFormType
+    fos_user.entity.user.class: AppBundle\Entity\User\Customer
+#    my_user_provider.class: Ben\UserBundle\Security\Core\User\FOSUBUserProvider
+    ben_user_security.authentication_handler: Ben\UserBundle\Handler\AuthenticationHandler
+services:
+#    ben_user.registration_complet:
+#        class: Ben\UserBundle\EventListener\RegistrationConfirmListener
+#        arguments: [@router, @session, @translator, "@service_container"]
+#        tags:
+#            - { name: kernel.event_subscriber }
+
+#    security.user_checker:
+#        class: %security.user_checker.class%
+#        arguments: ['@translator']
+#        public: false
+
+# Type de formulaire - Formulaire d'inscription
+            
+    ben_user.register.form.type:
+        class: Ben\UserBundle\Form\RegistrationType
+#        arguments: [%fos_user.entity.user.class%, %security.role_hierarchy.roles%]
+        tags:
+            - { name: form, alias: ben_user_registration }
+
+    ben_user.resetting.form.type:
+        class: %ben_user.resetting.form.type.class%
+        arguments: [%fos_user.entity.user.class%]
+        tags:
+            - { name: form.type, alias: ben_user_resetting }
+
+# Type de formulaire - Formulaire de modification du profile
+    ben_user.profile.form.type:
+        class: %ben_user.profile.form.type.class%
+        arguments: [%fos_user.entity.user.class%]
+        tags:
+            - { name: form.type, alias: ben_user_profile }
+            
+#    my_user_provider:
+#        class: "%my_user_provider.class%"
+#        #this is the place where the properties are passed to the UserProvider - see config.yml
+#        arguments: [@fos_user.user_manager,{facebook: facebook_id}]
+
+    fbn_user.login_entry_point:
+        class: Ben\UserBundle\EventListener\LoginEntryPoint
+        arguments: [ '@router' ]
+
+
+
+
+
+    authentication_handler:
+        class:  %ben_user_security.authentication_handler%
+        arguments:  ['@router']
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }

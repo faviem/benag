@@ -1,0 +1,7 @@
+#ben_web_service_homepage:
+#    path:     /
+#    defaults: { _controller: BenWebServiceBundle:Vente:index }
+    
+ben_ws_vente:
+    type: rest
+    resource: Ben\WebServiceBundle\Controller\VenteController

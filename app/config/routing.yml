@@ -1,0 +1,31 @@
+ben_web_service:
+    resource: "@BenWebServiceBundle/Resources/config/routing.yml"
+    prefix:   /ws/v{version}
+    defaults: { version: '1.0' }
+
+app_commande:
+    resource: "@AppBundle/Controller/CommandeController.php"
+    type:     annotation
+
+app_vente:
+    resource: "@AppBundle/Controller/VenteController.php"
+    type:     annotation
+
+ben_agro:
+    resource: "@BenUserBundle/Resources/config/routing.yml"
+    prefix:   /user
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+
+# Route de FOSUserBundle
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+    
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

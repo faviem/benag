@@ -1,0 +1,3 @@
+ben_user_render_form:
+    path:     /render-form
+    defaults: { _controller: BenUserBundle:Registration:renderform }

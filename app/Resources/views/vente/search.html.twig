@@ -1,0 +1,6 @@
+{% extends 'vente/index.html.twig' %}
+{% block content %}
+<div id="offers" class="row flow-offset-1 clearleft">
+    {% include 'vente/list.html.twig' with {'pagination': pagination} %}
+</div>
+{% endblock %}

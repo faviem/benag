@@ -1,0 +1,20 @@
+{
+  "name": "benagrobusiness",
+  "dependencies": {
+    "jquery": "2.2.*",
+    "bootstrap": "3.3.*",
+    "font-awesome": "4.5.*",
+    "backbone": "^1.3.3",
+    "bootstrap-material-design": "^0.5.9",
+    "requirejs": "^2.2.0",
+    "gridster-js": "0.7.0",
+    "backbone.localStorage": null,
+    "backbone-nested-model": "^2.0.4",
+    "backbone-associations": "^0.6.2",
+    "backbone.paginator": "^2.0.5"
+  },
+  "devDependencies": {
+    "jquery-ui": "^1.11.4",
+    "image-picker": "^0.2.4"
+  }
+}

@@ -1,0 +1,349 @@
+{% extends 'layout.html.twig' %}
+
+{% block container %}
+ {#   
+<!-- Inspired by http://codepen.io/transportedman/pen/NPWRGq -->
+
+<div class="carousel slide carousel-fade" data-ride="carousel">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+        </div>
+        <div class="item">
+        </div>
+    
+    </div>
+</div>
+
+<!-- Remeber to put all the content you want on top of the slider below the slider code -->
+#}    
+        <section class="vide" data-vide-bg="video/video-bg01">
+            <div class="vide_bg" 
+                 style="position: absolute; z-index: 0; top: 0px; left: 0px; bottom: 0px; right: 0px; overflow: hidden; background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(/assets/images/mais.jpg);">
+                {#<video style="visibility: visible; margin: auto; position: absolute; z-index: 1; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 1844px; height: auto;" autoplay="" loop=""><source type="video/mp4" src="video/video-bg01.mp4"></source><source type="video/webm" src="video/video-bg01.webm"></source><source type="video/ogg" src="video/video-bg01.ogv"></source>
+                </video>#}
+            </div>
+            <div class="vide__body">
+          <div class="jumbotron text-center">
+            <h1><span class="text-bold">Système</span> d'information<small>en temps réél sur les marchés agricoles.</small></h1>
+            <p class="big">La plateforme qui connecte agriculteurs & acheteurs.
+                {#<br class="visible-xl-inline"> #}
+            </p>
+            <div class="btn-group-variant"> 
+                <a href="{{ path('vente_index') }}" class="btn btn-default round-xl btn-sm">Le marché</a> 
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a class="btn btn-default round-xl btn-sm" href="{{ path("fos_user_security_logout") }}">{{ "Déconnexion"|trans }}</a>    
+                {% else %}
+                    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-default round-xl btn-sm">Démarrez</a>   
+                {% endif %}  
+                
+                
+                
+            </div>
+          </div>
+        </div>
+        </section>
+        
+        <section class="text-center well well-sm text-md-left section-border bg-white">
+          <div class="container">
+            {#http://www.shearperfectiononline.com/shortcodes.php#}   
+            <div class="row flow-offset-2 clearleft">
+                
+              <div class="col-xs-6 col-xs-6--mod-1 col-md-3">
+                <div class="box-md box-variant-1">
+                  <div class="box__left box-md-inset-1"><span class="icon icon-md icon-primary fl-bigmug-line-shopping199"></span></div>
+                  <div class="box__body box__middle">
+                    <h5>Offres</h5>
+                  </div>
+                </div>
+                <p>Le marché est ouvert et tout agriculteur remplissant les conditions adéquates peut ajouter son produit.</p>
+                
+              </div>
+                
+              <div class="col-xs-6 col-xs-6--mod-1 col-md-3">
+                <div class="box-md box-variant-1">
+                  <div class="box__left box-md-inset-1"><span class="icon icon-md icon-primary fl-bigmug-line-two317"></span></div>
+                  <div class="box__body box__middle">
+                    <h5>Commandes</h5>
+                  </div>
+                </div>
+                <p>Chaque produit peut être commandé en un clic.</p>
+              </div>
+                
+              <div class="col-xs-6 col-xs-6--mod-1 col-md-3">
+                <div class="box-md box-variant-1">
+                  <div class="box__left box-md-inset-1"><span class="icon icon-md icon-primary fl-bigmug-line-four87"></span></div>  
+                  
+                  <div class="box__body box__middle">
+                    <h5>Demandes</h5>
+                  </div>
+                </div>
+                <p>Soumettre une demande par rapport à un produit non disponible sur le marché.</p>
+              </div>
+                
+              <div class="col-xs-6 col-xs-6--mod-1 col-md-3">
+                <div class="box-md box-variant-1">
+                  <div class="box__left box-md-inset-1"><span class="icon icon-md icon-primary fl-bigmug-line-email64"></span></div>  
+                  
+                  <div class="box__body box__middle">
+                    <h5>Informations</h5>
+                  </div>
+                </div>
+                <p>Souscrire  et recevoir des informations précises sur les prix du marché</p>
+              </div>    
+                 
+            {#    
+              <div class="col-xs-6 col-xs-6--mod-1 col-md-4">
+                <div class="box-md box-variant-1">
+                  <div class="box__left box-md-inset-1"><span class="icon icon-md icon-primary fl-bigmug-line-rain30"></span></div>
+                  <div class="box__body box__middle">
+                    <h5>Growing In Open Field</h5>
+                  </div>
+                </div>
+                <p>Our use of Real Time Kinematic Global Positioning Systems allows accurate seed and fertilizer ...</p>
+              </div>
+                
+
+                
+              <div class="col-xs-6 col-xs-6--mod-1 col-md-4">
+                <div class="box-md box-variant-1">
+                  <div class="box__left box-md-inset-1"><span class="icon icon-md icon-primary fl-bigmug-line-checkmark14"></span></div>
+                  <div class="box__body box__middle">
+                    <h5>Qualitative Control</h5>
+                  </div>
+                </div>
+                <p>All residue studies undertaken in accordance with the Protection Agency’s guidelines.</p>
+              </div>
+                
+              <div class="col-xs-6 col-xs-6--mod-1 col-md-4">
+                <div class="box-md box-variant-1">
+                  <div class="box__left box-md-inset-1"><span class="icon icon-md icon-primary fl-bigmug-line-foggy3"></span></div>
+                  <div class="box__body box__middle">
+                    <h5>Growing Cattle</h5>
+                  </div>
+                </div>
+                <p>This new facility will allow cattle to be processed in the country, reducing transport and freight costs ...</p>
+              </div>
+
+ #}
+            </div>
+           
+          </div>
+        </section>
+        <!--End section-->
+
+{#
+        <!--Start section-->
+        <section class="text-center text-md-left bg-white">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6 col-md-4">
+                <article class="thumbnail thumbnail-4 section-border well slow-hover">
+                  <div class="image-slow-wrapper"><img alt="" src="images/blog-4.jpg"></div>
+                  <div class="caption">
+                    <h5><a href="blog_post.html">Farm Friendly Recipes: Food Trends</a></h5>
+                    <p>When it comes to new food trends, not everyone is ready to try the next new thing.</p>
+                    <div class="blog-info">
+                      <div class="pull-md-left">
+                        <time class="meta fl-bigmug-line-nine16" datetime="2015">Feb 10, 2016</time><a class="badge fl-bigmug-line-oval34 font-secondary" href="#">13</a>
+                      </div><a class="btn-link text-bold" href="blog_post.html">Read More</a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <article class="thumbnail thumbnail-4 section-border well slow-hover">
+                  <div class="image-slow-wrapper"><img alt="" src="images/blog-5.jpg"></div>
+                  <div class="caption">
+                    <h5><a href="blog_post.html">2015 Farming Annual Report</a></h5>
+                    <p>We analyzed 305 farms to determine what is going on in the CSA farming movement...</p>
+                    <div class="blog-info">
+                      <div class="pull-md-left">
+                        <time class="meta fl-bigmug-line-nine16" datetime="2015">Feb 10, 2016</time><a class="badge fl-bigmug-line-oval34 font-secondary" href="#">13</a>
+                      </div><a class="btn-link text-bold" href="blog_post.html">Read More</a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <article class="thumbnail thumbnail-4 section-border well slow-hover">
+                  <div class="image-slow-wrapper"><img alt="" src="images/blog-6.jpg"></div>
+                  <div class="caption">
+                    <h5><a href="blog_post.html">Now Hiring for Farmer Success</a></h5>
+                    <p>We are adding a new position to the Small Farm Central team, Farmer Success Specialist.</p>
+                    <div class="blog-info">
+                      <div class="pull-md-left">
+                        <time class="meta fl-bigmug-line-nine16" datetime="2015">Feb 10, 2016</time><a class="badge fl-bigmug-line-oval34 font-secondary" href="#">13</a>
+                      </div><a class="btn-link text-bold" href="blog_post.html">Read More</a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--End section-->
+
+        <!--Start section-->
+        <section class="well well-inset section-border bg-white">
+          <div class="container">
+            <h1 class="text-center">Our Progress</h1>
+            <div class="row">
+              <div class="col-sm-6 col-md-6 col-lg-5">
+                <p class="font-secondary big text-uppercase txt-gray-light">integrity</p>
+                <div class="progress">
+                  <div class="progress-bar animated" aria-valuemax="100" aria-valuemin="0" aria-valuenow="75" role="progressbar" style="width: 75%;"></div><span class="small txt-gray-light">75</span>
+                </div>
+                <p class="font-secondary big text-uppercase txt-gray-light">quality</p>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar"></div><span class="small txt-gray-light"></span>
+                </div>
+                <p class="font-secondary big text-uppercase txt-gray-light">innovation</p>
+                <div class="progress">
+                  <div class="progress-bar" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar"></div><span class="small txt-gray-light"></span>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-5 col-lg-offset-1 text-center text-md-left"><img alt="" src="images/blog-23.jpg"></div>
+            </div>
+          </div>
+        </section>
+        <!--End section-->
+#}
+        <!--Start section-->
+        <section class="well well-sm well-inset-2 text-center bg-image bg-image-4">
+          <div class="jumbotron jumbotron--mod-1">
+            <div class="container">
+              <h1>
+                  Mission
+                  <small>
+                      Notre mission est de vous fournir les prix courants, les offres et les demandes du marché.
+                      {#et ... les prix correspondants, des prévisions météorologiques, des nouvelles et des conseils.#}
+                  </small>
+              </h1>
+              <div class="btn-group-variant no-offset"><a class="btn btn-default round-xl btn-sm" href="#">En savoir plus</a><a class="btn btn-default round-xl btn-sm" href="#">Contatez-nous</a></div>
+            </div>
+          </div>
+        </section>
+        <!--End section-->
+{#
+        <!--Start section-->
+        <section class="bg-primary text-center bg-white">
+          <div class="container counter-panel">
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-3">
+                <div class="counter" data-to="10" data-from="0"></div>
+                <p class="text-uppercase">YEARS OF EXPERIENCE</p>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3">
+                <div class="counter" data-to="7" data-from="0"></div>
+                <p class="text-uppercase">testing laboratories</p>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3">
+                <div class="counter" data-to="26" data-from="0"></div>
+                <p class="text-uppercase">FARM PRODUCTS</p>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3">
+                <div class="counter" data-to="12" data-from="0"></div>
+                <p class="text-uppercase">QUALIFIED SPECIALISTS</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--End section-->
+#}        
+
+        <!--Start section-->
+        <section class="well well-sm bg-white">
+          <div class="container">
+            <h1 class="text-center">Contatez-nous</h1>
+
+            <div class="row flow-offset-1">
+              <div class="col-md-8 inset-sm-min bg-white round-large">
+                <form class="row label-insets rd-mailform" method="post">
+
+ 
+                {#{{ form_widget(form) }}#}
+
+
+            
+                  <!--RD Mailform Type-->
+                  <input type="hidden" value="contact" name="form-type">
+                  <!--END RD Mailform Type-->
+                  {#
+                  <div class="form-group col-sm-6 mfInput">
+                    <label class="text-uppercase font-secondary form-label rd-input-label" for="exampleInputText1">Prénom</label>
+                    {{ form_widget(form.prenom, {'attr' : {'class' : 'form-control', 'placeholder' : "Votre prénom"}} )}}
+                  <span class="mfValidation"></span>
+                  </div>
+                  #}
+                  <div class="form-group col-sm-6 mfInput">
+                    <label class="text-uppercase font-secondary" for="exampleInputText2">Nom</label>                    
+                    {{ form_widget(form.nom, {'attr' : {'class' : 'form-control', 'placeholder' : "Votre nom"}} )}}                    
+                  <span class="mfValidation"></span>
+                  </div>
+                  <div class="form-group col-sm-6 mfInput">
+                    <label class="text-uppercase font-secondary" for="exampleInputText2">Objet</label>                    
+                    {{ form_widget(form.objet, {'attr' : {'class' : 'form-control', 'placeholder' : "Objet"}} )}}                    
+                  <span class="mfValidation"></span>
+                  </div>
+                  <div class="form-group col-sm-12 mfInput">
+                    <label class="text-uppercase font-secondary" for="exampleTextarea">Votre message</label>
+                    <!--<textarea class="form-control" data-constraints="@NotEmpty" name="message" placeholder="Laissez votre message ici" rows="3" id="exampleTextarea"></textarea>-->
+                    {{ form_widget(form.message, {'attr' : {'class' : 'form-control', 'placeholder' : "Laissez votre message ici"}} )}}
+                    <span class="mfValidation"></span>
+                  </div>
+                  
+                  <div class="form-group col-sm-6 mfInput">
+                    <label class="text-uppercase font-secondary" for="exampleInputEmail1">E-mail</label>
+                    {{ form_widget(form.email, {'attr' : {'class' : 'form-control', 'placeholder' : "E-mail"}} )}}
+                  <span class="mfValidation"></span>
+                  </div>
+                  
+                  <div class="col-sm-6">
+                    <button class="btn btn-primary btn-xs round-xl btn-block form-el-offset-1" type="submit">Envoyez message</button>
+                    <div class="mfInfo mfProgress"><span class="cnt"></span><span class="loader"></span><span class="msg"></span></div>
+                  </div>
+                 {{ form_end(form) }}
+                </form>
+              </div>
+              <div class="col-md-4 text-center text-md-left">
+                <address class="contact-block inset-sm-min-2 bg-white round-large">
+                  <dl>
+                    <dt>ADRESSE</dt>
+                    <dd>Ab.Calavi, Bénin</dd>
+                    <dt>Nous ouvrons</dt>
+                    <dd>Heures: 8h00-18h00</dd>
+                    <dd>Jour: Lun-Sam</dd>
+                    <dt>TELEPHONE</dt>
+                    <dd><a href="callto:#">97-50-24-47, &nbsp;</a><a href="callto:#">98-85-50-35</a></dd>
+                    <dt class="h6">E-MAIL</dt>
+                    <dd><a href="mailto:contact@benagro.org">contact@benagro.org</a></dd>
+                  </dl>
+                  <ul class="list-inline list-inline-3">
+                    <li><a class="material-design-facebook56" href="#"></a></li>
+                    {#<li><a class="material-design-google119" href="#"></a></li>#}
+                    <li><a class="material-design-twitter47" href="#"></a></li>
+                  </ul>
+                </address>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--End section-->
+{#
+        <!--Start Section Map-->
+        <section class="map">
+          <div class="map_model" id="google-map" style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden;"><div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;" class="gm-style"><div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0; cursor: url(&quot;http://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;" aria-hidden="true"><div style="width: 256px; height: 256px; position: absolute; left: 787px; top: -48px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 787px; top: 208px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 531px; top: -48px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 531px; top: 208px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1043px; top: -48px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1043px; top: 208px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 275px; top: -48px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 275px; top: 208px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1299px; top: -48px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1299px; top: 208px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 19px; top: -48px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 19px; top: 208px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1555px; top: -48px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1555px; top: 208px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -237px; top: -48px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -237px; top: 208px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1811px; top: -48px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1811px; top: 208px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;" aria-hidden="true"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 787px; top: -48px;"><canvas draggable="false" style="-moz-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;" height="256" width="256"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 787px; top: 208px;"><canvas draggable="false" style="-moz-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;" height="256" width="256"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 531px; top: -48px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 531px; top: 208px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1043px; top: -48px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1043px; top: 208px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 275px; top: -48px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 275px; top: 208px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1299px; top: -48px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1299px; top: 208px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 19px; top: -48px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 19px; top: 208px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1555px; top: -48px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1555px; top: 208px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -237px; top: -48px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -237px; top: 208px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1811px; top: -48px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1811px; top: 208px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;" aria-hidden="true"><div style="position: absolute; left: 787px; top: -48px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4824!3i6163!4i256!2m3!1e0!2sm!3i345012686!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=109021" draggable="false" alt=""></div><div style="position: absolute; left: 787px; top: 208px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4824!3i6164!4i256!2m3!1e0!2sm!3i345012673!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=94083" draggable="false" alt=""></div><div style="position: absolute; left: 531px; top: -48px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4823!3i6163!4i256!2m3!1e0!2sm!3i345012686!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=30109" draggable="false" alt=""></div><div style="position: absolute; left: 531px; top: 208px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4823!3i6164!4i256!2m3!1e0!2sm!3i345012673!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=15171" draggable="false" alt=""></div><div style="position: absolute; left: 1043px; top: -48px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4825!3i6163!4i256!2m3!1e0!2sm!3i345012686!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=56862" draggable="false" alt=""></div><div style="position: absolute; left: 1043px; top: 208px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4825!3i6164!4i256!2m3!1e0!2sm!3i345012673!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=41924" draggable="false" alt=""></div><div style="position: absolute; left: 275px; top: -48px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4822!3i6163!4i256!2m3!1e0!2sm!3i345012686!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=82268" draggable="false" alt=""></div><div style="position: absolute; left: 275px; top: 208px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4822!3i6164!4i256!2m3!1e0!2sm!3i345012673!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=67330" draggable="false" alt=""></div><div style="position: absolute; left: 1299px; top: -48px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4826!3i6163!4i256!2m3!1e0!2sm!3i345012673!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=117971" draggable="false" alt=""></div><div style="position: absolute; left: 1299px; top: 208px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4826!3i6164!4i256!2m3!1e0!2sm!3i345012673!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=120836" draggable="false" alt=""></div><div style="position: absolute; left: 19px; top: -48px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4821!3i6163!4i256!2m3!1e0!2sm!3i345012673!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=116624" draggable="false" alt=""></div><div style="position: absolute; left: 19px; top: 208px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4821!3i6164!4i256!2m3!1e0!2sm!3i345012673!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=119489" draggable="false" alt=""></div><div style="position: absolute; left: 1555px; top: -48px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4827!3i6163!4i256!2m3!1e0!2sm!3i345012638!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=31629" draggable="false" alt=""></div><div style="position: absolute; left: 1555px; top: 208px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4827!3i6164!4i256!2m3!1e0!2sm!3i345012638!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=34494" draggable="false" alt=""></div><div style="position: absolute; left: -237px; top: -48px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4820!3i6163!4i256!2m3!1e0!2sm!3i345012673!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=37712" draggable="false" alt=""></div><div style="position: absolute; left: -237px; top: 208px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4820!3i6164!4i256!2m3!1e0!2sm!3i345012673!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=40577" draggable="false" alt=""></div><div style="position: absolute; left: 1811px; top: -48px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4828!3i6163!4i256!2m3!1e0!2sm!3i345012638!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=110541" draggable="false" alt=""></div><div style="position: absolute; left: 1811px; top: 208px; transition: opacity 200ms ease-out 0s;"><img style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.google.com/maps/vt?pb=!1m5!1m4!1i14!2i4828!3i6164!4i256!2m3!1e0!2sm!3i345012638!3m14!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjV8cC5oOiNGRkJCMDB8cC5zOjQzLjQwMDAwMDAwMDAwMDAwNnxwLmw6MzcuNTk5OTk5OTk5OTk5OTk0fHAuZzoxLHMudDo0OXxwLmg6I0ZGQzIwMHxwLnM6LTYxLjh8cC5sOjQ1LjU5OTk5OTk5OTk5OTk5NHxwLmc6MSxzLnQ6NTB8cC5oOiNGRjAzMDB8cC5zOi0xMDB8cC5sOjUxLjE5OTk5OTk5OTk5OTk5fHAuZzoxLHMudDo1MXxwLmg6I0ZGMDMwMHxwLnM6LTEwMHxwLmw6NTJ8cC5nOjEscy50OjZ8cC5oOiMwMDc4RkZ8cC5zOi0xMy4yMDAwMDAwMDAwMDAwMDN8cC5sOjIuNDAwMDAwMDAwMDAwMDA1N3xwLmc6MSxzLnQ6MnxwLmg6IzAwRkY2QXxwLnM6LTEuMDk4OTAxMDk4OTAxMTIzNHxwLmw6MTEuMjAwMDAwMDAwMDAwMDE3fHAuZzox!4e0&amp;token=113406" draggable="false" alt=""></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 2; width: 100%; height: 100%; transition-duration: 0.3s; opacity: 0; display: none;" class="gm-style-pbc"><p class="gm-style-pbt">Use two fingers to move the map</p></div><div style="position: absolute; left: 0px; top: 0px; z-index: 3; width: 100%; height: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 4; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a style="position: static; overflow: visible; float: none; display: inline;" target="_blank" href="https://maps.google.com/maps?ll=40.646197,-73.992407&amp;z=14&amp;t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=apiv3" title="Click to see this area on Google Maps"><div style="width: 66px; height: 26px; cursor: pointer;"><img style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;" src="http://maps.gstatic.com/mapfiles/api-3/images/google_white5.png" draggable="false"></div></a></div><div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto,Arial,sans-serif; color: rgb(34, 34, 34); box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2); z-index: 10000002; display: none; width: 256px; height: 148px; position: absolute; left: 771px; top: 135px;"><div style="padding: 0px 0px 10px; font-size: 16px;">Map Data</div><div style="font-size: 13px;">Map data &copy;2016 Google</div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" draggable="false"></div></div><div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 161px; bottom: 0px; width: 121px;"><div draggable="false" style="-moz-user-select: none; height: 14px; line-height: 14px;" class="gm-style-cc"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;">Map Data</a><span>Map data &copy;2016 Google</span></div></div></div><div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;"><div style="font-family: Roboto,Arial,sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Map data &copy;2016 Google</div></div><div class="gmnoprint gm-style-cc" style="z-index: 1000001; -moz-user-select: none; height: 14px; line-height: 14px; position: absolute; right: 92px; bottom: 0px;" draggable="false"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);" href="https://www.google.com/intl/en-US_US/help/terms_maps.html" target="_blank">Terms of Use</a></div></div><div style="display: none; margin: 10px 14px; position: absolute; top: 0px; right: 0px;"></div><div draggable="false" style="-moz-user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px;" class="gm-style-cc"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a target="_new" title="Report errors in the road map or imagery to Google" style="font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;" href="https://www.google.com/maps/@40.646197,-73.9924068,14z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3">Report a map error</a></div></div><div class="gmnoprint gm-bundled-control gm-bundled-control-on-bottom" style="margin: 10px; -moz-user-select: none; position: absolute; bottom: 107px; right: 28px;" draggable="false" controlwidth="28" controlheight="93"><div class="gmnoprint" style="position: absolute; left: 0px; top: 38px;" controlwidth="28" controlheight="55"><div draggable="false" style="-moz-user-select: none; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); border-radius: 2px; cursor: pointer; background-color: rgb(255, 255, 255); width: 28px; height: 55px;"><div title="Zoom in" style="position: relative; width: 28px; height: 27px; left: 0px; top: 0px;"><div style="overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;" src="http://maps.gstatic.com/mapfiles/api-3/images/tmapctrl.png" draggable="false"></div></div><div style="position: relative; overflow: hidden; width: 67%; height: 1px; left: 16%; background-color: rgb(230, 230, 230); top: 0px;"></div><div title="Zoom out" style="position: relative; width: 28px; height: 27px; left: 0px; top: 0px;"><div style="overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;"><img style="position: absolute; left: 0px; top: -15px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;" src="http://maps.gstatic.com/mapfiles/api-3/images/tmapctrl.png" draggable="false"></div></div></div></div><div class="gm-svpc" style="background-color: rgb(255, 255, 255); box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); border-radius: 2px; width: 28px; height: 28px; cursor: url(&quot;http://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; position: absolute; left: 0px; top: 0px;" controlwidth="28" controlheight="28"><div style="position: absolute; left: 1px; top: 1px;"></div><div style="position: absolute; left: 1px; top: 1px;"><div style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px;" aria-label="Street View Pegman Control"><img style="position: absolute; left: -147px; top: -26px; width: 215px; height: 835px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.gstatic.com/mapfiles/api-3/images/cb_scout5.png" draggable="false"></div><div style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;" aria-label="Pegman is on top of the Map"><img style="position: absolute; left: -147px; top: -52px; width: 215px; height: 835px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.gstatic.com/mapfiles/api-3/images/cb_scout5.png" draggable="false"></div><div style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;" aria-label="Street View Pegman Control"><img style="position: absolute; left: -147px; top: -78px; width: 215px; height: 835px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.gstatic.com/mapfiles/api-3/images/cb_scout5.png" draggable="false"></div></div></div><div class="gmnoprint" controlwidth="28" controlheight="0" style="display: none; position: absolute;"><div style="width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); cursor: pointer; background-color: rgb(255, 255, 255); display: none;" title="Rotate map 90 degrees"><img style="position: absolute; left: -141px; top: 6px; width: 170px; height: 54px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.gstatic.com/mapfiles/api-3/images/tmapctrl4.png" draggable="false"></div><div style="width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); top: 0px; cursor: pointer; background-color: rgb(255, 255, 255);" class="gm-tilt"><img style="position: absolute; left: -141px; top: -13px; width: 170px; height: 54px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" src="http://maps.gstatic.com/mapfiles/api-3/images/tmapctrl4.png" draggable="false"></div></div></div><div class="gmnoprint" style="margin: 10px; z-index: 0; position: absolute; cursor: pointer; left: 0px; top: 0px;"><div style="float: left;" class="gm-style-mtc"><div style="direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(0, 0, 0); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 8px; border-bottom-left-radius: 2px; border-top-left-radius: 2px; background-clip: padding-box; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); min-width: 21px; font-weight: 500;" draggable="false" title="Show street map">Map</div><div style="background-color: white; z-index: -1; padding: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); position: absolute; left: 0px; top: 34px; text-align: left; display: none;"><div style="color: rgb(0, 0, 0); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 6px 8px 6px 6px; direction: ltr; text-align: left; white-space: nowrap;" draggable="false" title="Show street map with terrain"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;"><img style="position: absolute; left: -52px; top: -44px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none; width: 68px; height: 67px;" src="http://maps.gstatic.com/mapfiles/mv/imgs8.png" draggable="false"></div></span><label style="vertical-align: middle; cursor: pointer;">Terrain</label></div></div></div><div style="float: left;" class="gm-style-mtc"><div style="direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(86, 86, 86); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 8px; border-bottom-right-radius: 2px; border-top-right-radius: 2px; background-clip: padding-box; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); border-left: 0px none; min-width: 37px;" draggable="false" title="Show satellite imagery">Satellite</div><div style="background-color: white; z-index: -1; padding: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); position: absolute; right: 0px; top: 34px; text-align: left; display: none;"><div style="color: rgb(0, 0, 0); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 6px 8px 6px 6px; direction: ltr; text-align: left; white-space: nowrap;" draggable="false" title="Show imagery with street names"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden;"><img style="position: absolute; left: -52px; top: -44px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none; width: 68px; height: 67px;" src="http://maps.gstatic.com/mapfiles/mv/imgs8.png" draggable="false"></div></span><label style="vertical-align: middle; cursor: pointer;">Labels</label></div></div></div></div></div></div>
+          <ul class="map_locations">
+            <li data-active="images/gmap_marker_active.png" data-basic="images/gmap_marker.png" data-y="40.643180" data-x="-73.9874068">
+              <p>9870 St Vincent Place, Glasgow, DC 45 Fr 45. <span>800 2345-6789</span></p>
+            </li>
+          </ul>
+        </section>
+#}        
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+
+{% endblock %}

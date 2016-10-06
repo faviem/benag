@@ -1,0 +1,45 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% do form.username.setRendered %}
+{% do form.firstname.setRendered %}
+{% do form.lastname.setRendered %}
+{% do form.email.setRendered %}
+{% do form.plainPassword.setRendered %}
+{% do form.profil.setRendered %}
+{% do form.phone.setRendered %}
+
+{% if(form.nomEntreprise is defined) %}
+    
+<legend>{{ "registration.legend.3" | trans }}</legend> 
+
+<div class="form-group">
+    
+    {{ form_widget(form.nomEntreprise, {'attr' : {'class' : 'form-control', 'placeholder' : 'registration.nomEntreprise'|trans}}) }}
+    {{ form_errors(form.nomEntreprise) }}
+</div>
+{% endif %} 
+
+{% if(form.nomEntreprise is defined) %}
+<div class="form-group">
+    
+    {{ form_widget(form.typeProfile, {'attr' : {'class' : 'form-control'}}) }}
+    {{ form_errors(form.typeProfile) }}
+</div>
+{% endif %} 
+{% if(form.domaine is defined) %}
+<div class="form-group">
+    
+    {{ form_widget(form.domaine, {'attr' : {'class' : 'form-control'}}) }}
+    {{ form_errors(form.domaine) }}
+</div>
+{% endif %} 
+
+{% if(form.adresse is defined) %}
+<div class="form-group">
+    
+    {{ form_widget(form.adresse, {'attr' : {'class' : 'form-control', 'placeholder' : 'registration.adresse'|trans}}) }}
+    {{ form_errors(form.adresse) }}
+</div>
+{% endif %} 
+
+{{ form_rest(form) }}

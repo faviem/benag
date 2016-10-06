@@ -1,0 +1,136 @@
+{% extends 'layout.html.twig' %}
+{% block container %}
+    <section class="add-buttons button-right hidden-phone hidden-tablet">
+        <a class="itemadd" href="{{ path('vente_new') }}" id='twitter-btn'>
+            <span class="add-icon">
+                <span class="add-text">Ajoutez une offre</span>
+            </span>
+        </a>
+    </section>
+    <section>
+          <!--Swiper-->
+        <div class="swiper-container swiper-slider swiper-container-horizontal swiper-container-fade" data-loop="false" data-slide-effect="fade" data-autoplay="5000">
+            <div class="jumbotron text-center">
+              <h1>
+                  <span class="text-bold">Marché</span>
+                  <small>Consultés les produits</small>
+              </h1>
+              <p class="big"></p>
+            </div>
+            <div class="swiper-wrapper" style="transition-duration: 0ms;">
+              <div class="swiper-slide" data-slide-bg="/assets/images/header-1.jpg" style="background-image: url('/assets/images/header-1.jpg'); background-size: cover; width: 1842px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                <div class="swiper-slide-caption"></div>
+              </div>
+              <div class="swiper-slide" data-slide-bg="/assets/images/header-2.jpg" style="background-image: url('/assets/images/header-2.jpg'); background-size: cover; width: 1842px; opacity: 1; transform: translate3d(-1842px, 0px, 0px); transition-duration: 0ms;">
+                <div class="swiper-slide-caption"></div>
+              </div>
+              <div class="swiper-slide swiper-slide-prev" data-slide-bg="/assets/images/header-3.jpg" style="background-image: url('/assets/images/header-3.jpg'); background-size: cover; width: 1842px; opacity: 1; transform: translate3d(-3684px, 0px, 0px); transition-duration: 0ms;">
+                <div class="swiper-slide-caption"></div>
+              </div>
+              <div class="swiper-slide swiper-slide-active" data-slide-bg="/assets/images/header-4.jpg" style="background-image: url('/assets/images/header-4.jpg'); background-size: cover; width: 1842px; opacity: 1; transform: translate3d(-5526px, 0px, 0px); transition-duration: 0ms;">
+                <div class="swiper-slide-caption"></div>
+              </div>
+            </div>
+        </div>
+    </section>  
+
+        <section class="section-border text-center text-md-left">
+          <div class="container">
+            <ol class="breadcrumb">
+              <li><a href="{{ path('homepage') }}">Accueil</a></li>
+              <li><a href="#">Marché</a></li>
+            </ol>
+          </div>
+        </section>
+
+        <!--Start section-->
+        <section class="text-center offset-1">
+          <div class="container">
+              
+            <h1>Les offres de produits disponibles</h1>
+            
+            <br>   
+            
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuCategory" data-toggle="dropdown">
+                        {{ 'Filtrer par' | trans }}
+                        <span class="caret"></span>
+                    </button>
+                    <ul id="template_category" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuCategory">
+                                        
+                            {% for category in categories %}
+                                <li role="presentation">
+                                    <a data-name="{{ category.name }}" role="menuitem" tabindex="-1" href="#">{{ category.name }}</a>
+                                </li>
+                            {% endfor %}
+                                        
+                    </ul>
+                </div>
+            </div>
+                            
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                        {{ 'Trier par' | trans }}
+                        <span class="caret"></span>
+                    </button>
+                    <ul id="template_sorteby" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a data-id="author" role="menuitem" tabindex="-1" href="#">
+                                {{ 'agriculteur' | trans }}
+                            </a>
+                            {{ knp_pagination_sortable(pagination, 'Date', 'o.dateCreation') }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                            
+           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">  
+               
+
+        <div class="search">
+            <!--<h2>Recherchez un produit</h2>-->
+            <form action="{{ path('vente_search') }}" method="get">
+                <input type="text" name="query" value="{{ app.request.get('query') }}" id="search_keywords" placeholder="Recherchez une offre">
+                <input type="submit" value="search" >
+                <img id="loader" src="{{ asset('/assets/images/ajax-loader.gif') }}" style="vertical-align: middle; display: none" />
+                <div class="help">
+                    Entrer une commune (Ouidah) ou un produit (Ananas)
+                </div>
+            </form>
+        </div>
+
+               
+           </div> 
+                            
+           <br>    
+           {% block content %}
+            <div id="offers" class="row flow-offset-1 clearleft">
+                {% include 'vente/list.html.twig' with {'pagination': pagination} %}
+            </div>
+            {% endblock %}        
+          </div>
+        </section>
+
+        <section class="well text-center text-md-left">
+          <div class="container">
+            <div class="col-inset-2 text-center btn-group" role="group" aria-label="First group">
+                <div id="pagination" class="navigation">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            </div>
+          </div>
+
+        </section>
+        
+
+</div>      
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        require(['ventes/market']);
+    </script>
+{% endblock %}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">   
+        <meta name="google-site-verification" content="zyg8ij8y2IbROZx5KyFDfCh1w7J0cFEIuzzai0mXfsI" />
+        <title>{% block title %}Benin Agro Business{% endblock %}</title>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora">
+        <link rel="stylesheet" href="{{ asset('assets/css/benagro.min.css') }}">
+        
+        {% block stylesheets %}
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        {% endblock %}
+        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        
+
+    </head>
+
+    <body class=" is-responsive" id="" >
+    <div class="page">
+          <!--
+          ========================================================
+                                  HEADER
+          ========================================================
+          -->
+          {% block header %}
+          <header class="page-header">
+              
+            <!--RD Navbar-->
+            <div class="rd-navbar-wrap">
+              <nav data-md-layout="rd-navbar-static" data-sm-layout="rd-navbar-fullwidth" data-stick-up="false" data-hover-on="false" data-layout="rd-navbar-fixed" class="rd-navbar top-panel-none-items rd-navbar-static">
+                <div class="rd-navbar-top-panel">
+                  <div class="rd-navbar-inner">
+                    <button class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".list-inline, .fa-envelope, .fa-phone, .fl-bigmug-line-shopping204">
+                        <span></span>
+                    </button>
+                    <a class="fa-envelope" href="mailto:#">contact@benagro.org</a>
+                    <a class="fa-phone" href="callto:#">(+299) 97 50-24-47</a>
+                    <ul class="list-inline pull-right">
+                      <li><a class="material-design-facebook56" href="#"></a></li>
+                      <li><a class="material-design-twitter47" href="#"></a></li>
+                      {#<li><a class="material-design-google119" href="#"></a></li>
+                      <li><a class="material-design-linkedin24" href="#"></a></li>
+                      <li><a class="material-design-pinterest33" href="#"></a></li>#}
+                    </ul>
+                  </div>
+                </div>
+                <div class="rd-navbar-inner">
+
+                  <!--RD Navbar Panel-->
+                  <div class="rd-navbar-panel">
+
+                    <!--RD Navbar Toggle-->
+                    <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar"><span></span></button>
+                    <!--END RD Navbar Toggle-->
+
+                    <!--RD Navbar Brand-->
+                    <div class="rd-navbar-brand">
+                        <a class="brand-name" href="{{ path('homepage') }}">BenAgro<span>agriculteurs-acheteurs</span></a>
+                    </div>
+                    <!--END RD Navbar Brand-->
+                  </div>
+                  <!--END RD Navbar Panel-->
+
+                  <div class="rd-navbar-nav-wrap">
+                    {#  
+                      <a class="fl-bigmug-line-shopping204" href="shop-cart.html"></a>
+
+                    Connexion
+                    <!--RD Navbar Search-->
+                    <div class="rd-navbar-search">
+                      <form class="rd-navbar-search-form" method="GET" action="search.php">
+                        <label class="rd-navbar-search-form-input">
+                          <input type="text" autocomplete="off" placeholder="Search.." name="s">
+                        </label>
+                        <button class="rd-navbar-search-form-submit" type="submit"></button>
+                      </form><span class="rd-navbar-live-search-results"></span>
+                      <button class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search, .rd-navbar-live-search-results"></button>
+                    </div>
+                    <!--END RD Navbar Search-->
+                   #}
+                    <!--RD Navbar Nav-->
+                    <ul class="rd-navbar-nav">
+                        <li class="active"><a href="{{ path('homepage') }}">Accueil</a></li>
+                        <li><a href="#">A propos</a></li>
+                        <li><a href="{{ path('vente_index') }}">Marché</a></li>
+                       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li>{{ app.user.email }}</li>
+                        <li>
+                            <a href="{{ path("fos_user_security_logout") }}">
+                                {{ "Déconnexion"|trans }}
+                            </a>
+                        </li>
+                        {% else %}
+                         <li>    
+                            <a href="{{ path("fos_user_security_login") }}">
+                            {{ "Connexion" | trans }}
+                            </a>
+                        </li>    
+                       {% endif %}
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+
+            </div>
+
+          </header>
+          {% endblock %}
+
+          <!--
+          ========================================================
+                                  CONTENT
+          ========================================================
+          -->
+          <main class="page-content">
+            {% block container %}{% endblock %}
+          </main>
+          <!--
+          ========================================================
+                                  FOOTER
+          ========================================================
+          -->
+          <footer class="page-footer footer-minimal dark text-center">
+            {#  
+            <section class="footer-content">
+              <div class="container">
+                <div class="pull-lg-left rd-navbar-brand"><a class="brand-name" href="{{ path('homepage') }}">BenAgro<span>agriculteurs-acheteurs</span></a></div>
+                <ul class="list-inline-2 pull-lg-right">
+                  <li class="active"><a href="#">Accueil</a></li>
+                  <li><a href="#">A propos</a></li>
+                  <li><a href="#">Marché</a></li>
+                </ul>
+              </div>
+            </section>
+            #}
+            <section class="copyright">
+              <div class="container">
+                <p class="pull-md-left">&copy; <span id="copyright-year">2016</span> Tous droits réservés <a href="#">Conditions d'utilisation</a>
+
+                </p>
+                <ul class="list-inline pull-md-right">
+                  <li><a class="material-design-facebook56" href="#"></a></li>
+                  <li><a class="material-design-twitter47" href="#"></a></li>
+                  {#<li><a class="material-design-pinterest33" href="#"></a></li>
+                  <li><a class="material-design-google119" href="#"></a></li>
+                  <li><a class="material-design-linkedin24" href="#"></a></li>
+                  #}
+                </ul>
+              </div>
+            </section>
+          </footer>
+        </div>
+        <a class="ui-to-top fl-bigmug-line-up107" id="ui-to-top" href="#"></a>
+    {% block javascripts %}
+        {% if app.request.host matches '/benagro/' %}
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-78685990-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+        {% endif %}    
+
+        <script src="{{ asset('assets/js/benagro.min.js') }}"></script>
+        <script src="{{ asset('assets/js/requirejs.js') }}"></script>
+        <script src="{{ asset('js/app/main.js') }}"></script>
+    {% endblock %}
+    </body>
+</html>

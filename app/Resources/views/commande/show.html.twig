@@ -1,0 +1,76 @@
+{% extends 'layout.html.twig' %}
+
+{% block container %}
+    <h1>Commande</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ commande.id }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{% if commande.dateCreation %}{{ commande.dateCreation|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datemiseajour</th>
+                <td>{% if commande.dateMiseAjour %}{{ commande.dateMiseAjour|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ commande.quantite }}</td>
+            </tr>
+            <tr>
+                <th>Unitemesure</th>
+                <td>{{ commande.uniteMesure }}</td>
+            </tr>
+            <tr>
+                <th>Prixunit</th>
+                <td>{{ commande.prixUnit }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ commande.description }}</td>
+            </tr>
+            <tr>
+                <th>Permanent</th>
+                <td>{% if commande.permanent %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Brouillon</th>
+                <td>{% if commande.brouillon %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Soumis</th>
+                <td>{% if commande.soumis %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Accepte</th>
+                <td>{% if commande.accepte %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Annule</th>
+                <td>{% if commande.annule %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Livre</th>
+                <td>{% if commande.livre %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('commande_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('commande_edit', { 'id': commande.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

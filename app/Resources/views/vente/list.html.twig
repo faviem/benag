@@ -1,0 +1,17 @@
+{% for vente in pagination %}
+    
+<div class="col-xs-6 col-xs-6--mod-1 col-md-3">
+    <div class="product tumbnail thumbnail-3">
+        <a href="{{ path('vente_show', { 'id': vente.id }) }}">
+            <img alt="" src="{{ asset(product_images ~'/'~ vente.imageName)|imagine_filter('my_thumb') }}">
+        </a>
+        <div class="caption">
+            <h6>
+                <a href="#">{{ vente.product.name }}</a>
+            </h6>
+            <span class="price sale">{{ vente.prixUnit }} FCFA</span>
+        </div>
+    </div>
+</div> 
+
+{% endfor %}

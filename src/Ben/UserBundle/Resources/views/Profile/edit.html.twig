@@ -1,0 +1,19 @@
+{% extends 'AikidoAppBundle:Pratiquant:profileLayout.html.twig'%}
+{% block title %}
+    {{ 'Mettez à jour vos informations' | trans }} - {{ parent() }}
+{% endblock %}
+
+{% block affiliate_breadcrumb %}
+    <li class="current">
+        <a href="{{ path('aikido_app_pratiquant_security_info') }}">
+            {{'Information de connexion'|trans}}
+        </a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="sub-header">
+        <h2>{{'Information de connexion'|trans}}</h2>
+    </div> 
+{% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+{% endblock %}

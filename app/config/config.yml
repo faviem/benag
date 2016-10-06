@@ -1,0 +1,265 @@
+imports:
+#    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: "@BenUserBundle/Resources/config/services.yml" }
+    - { resource: "@BenWebServiceBundle/Resources/config/services.yml" }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: fr
+    app.path.product_images: /uploads/images/products
+
+framework:
+    #esi:             ~
+    translator:      ~
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id:  session.handler.native_file
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+    fragments:       ~
+    http_method_override: true
+    assets: ~
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    form_themes:
+#        
+        - 'BenUserBundle:Form:fields.html.twig'
+        - 'VichUploaderBundle:Form:fields.html.twig'
+
+    globals:
+
+        domain: %domain%
+
+        product_images: %app.path.product_images%
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        #     path:     "%database_path%"
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    port:      "%mailer_port%"
+    spool:     { type: memory }
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: AppBundle\Entity\User\User
+    from_email:
+        address:        jacques.i.class@gmail.com
+        sender_name:    Ben
+  # Configuration concernant l'inscription d'un nouvel utilisateur.
+    registration:
+        form:
+            type: Ben\UserBundle\Form\RegistrationType
+            
+        confirmation:
+            enabled:    true
+  # Configuration concernant la mise à jour du profile    
+    profile:
+        form:
+            type: ben_user_profile    
+    service:
+        mailer: fos_user.mailer.twig_swift
+    resetting:
+        token_ttl: 86400
+        form:
+          type: ben_user_resetting
+        email:
+            template: BenUserBundle:Resetting:resetting.email.html.twig
+            
+vich_uploader:
+    db_driver: orm
+    mappings:
+        product_image:
+            uri_prefix:         %app.path.product_images%
+            upload_destination: %kernel.root_dir%/../web/uploads/images/products
+            
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
+            
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        cache: ~
+        my_thumb:
+            quality: 75
+            filters:
+                thumbnail: { size: [270, 200], mode: outbound }
+                
+fos_js_routing:
+    routes_to_expose:
+        - ben_user_render_form
+        - get_ventes
+        - vente_select_cities
+        - vente_filter
+        
+fos_rest:
+    unauthorized_challenge: "Basic realm=\"Restricted Area\""
+    access_denied_listener:
+        # all requests using the 'json' format will return a 403 on an access denied violation
+        json: true
+    routing_loader:
+      # inclut les format dans les routes
+        default_format: yml
+    param_fetcher_listener: force
+    body_listener:
+      decoders:
+        json: fos_rest.decoder.json
+        xml: fos_rest.decoder.xml
+        html: fos_rest.decoder.html
+#    format_listener:
+#        rules:
+#            # setting fallback_format to json means that instead of considering the next rule in case of a priority mismatch, json will be used
+#            - { path: '^/ws', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: false }
+#            # setting fallback_format to false means that instead of considering the next rule in case of a priority mismatch, a 406 will be caused
+#            - { path: '^/image', priorities: ['jpeg', 'gif'], fallback_format: false, prefer_extension: true }
+#            # setting fallback_format to null means that in case of a priority mismatch the next rule will be considered
+#            - { path: '^/admin', methods: [ 'GET', 'POST'], priorities: [ 'json', 'xml', 'html'], fallback_format: ~, prefer_extension: false }
+#            - { path: '^/', priorities: [ 'text/html', '*/*'], fallback_format: html, prefer_extension: true }  
+            
+
+#hearsay_require_js:
+#    base_dir: '@AppBundle/Resources/public/js'
+#    initialize_template: ::initialize_require_js.html.twig
+#    paths:
+#        jquery:
+#            location: '%kernel.root_dir%/../bower_components/jquery/dist/jquery.min'
+#        'jquery.ui':
+#            location: '%kernel.root_dir%/../bower_components/jquery-ui/jquery-ui.min.js '
+#        underscore:
+#            location: '%kernel.root_dir%/../bower_components/underscore/underscore-min'
+#        backbone:
+#            location: '%kernel.root_dir%/../bower_components/backbone/backbone-min'
+#        bootstrap:
+#            location: '%kernel.root_dir%/../bower_components/bootstrap/dist/js/bootstrap.min'
+#
+#    shim:
+#        'jquery.ui':
+#            deps:    ['jquery']
+#            exports: '$'            
+#           
+#        bootstrap:
+#            deps:    ['jquery']
+#        underscore:
+#            exports: '_'        
+#        backbone:
+#            deps:    ['jquery', 'underscore']
+#            exports: 'Backbone'
+# 
+#    options:
+#        waitSeconds:
+#            value: 0
+#            
+#    optimizer:
+#        path: '%kernel.root_dir%/../r.js'
+#        exclude: ['twig']
+#        declare_module_name : true
+#        timeout: 280
+#        options:
+#            optimize: "uglify2"
+#            uglify2:
+#                compress:
+#                    sequences: true
+#                    drop_console: true
+#                    dead_code: true
+#                    drop_debugger: true
+#                    booleans: true
+#                    conditionals: true
+#                    if_return: true
+#                    join_vars: true
+#                    unused: true
+knp_paginator:
+    page_range: 4                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: AppBundle:Pagination:pagination.html.twig     
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+        
+        
+ivory_lucene_search:
+    # Index identifier
+    indentifier1:
+        # Path to store the index (Required)
+        path: "%kernel.root_dir%/../web/data/index1" 
+
+    # Index identifier
+    identifier2:
+        # Path to store the index (Required)
+        path: "%kernel.root_dir%/../web/data/index2" 
+
+        # Index analyser (Optional)
+        # See http://framework.zend.com/manual/en/zend.search.lucene.charset.html
+        analyzer: ZendSearch\Lucene\Analysis\Analyzer\Common\Text\CaseInsensitive
+
+        # Max Buffered documents (Optional)
+        # See http://framework.zend.com/manual/en/zend.search.lucene.index-creation.html#zend.search.lucene.index-creation.optimization.maxbuffereddocs
+        max_buffered_docs: 10
+
+        # Max merge documents (Optional)
+        # See http://framework.zend.com/manual/en/zend.search.lucene.index-creation.html#zend.search.lucene.index-creation.optimization.maxmergedocs
+        max_merge_docs: 10000 # (default: PHP_INT_MAX)
+
+        # Merge factor (Optional)
+        # See http://framework.zend.com/manual/en/zend.search.lucene.index-creation.html#zend.search.lucene.index-creation.optimization.mergefactor
+        merge_factor: 10
+
+        # Index directory permission (Optional)
+        # See http://framework.zend.com/manual/en/zend.search.lucene.index-creation.html#zend.search.lucene.index-creation.permissions
+        permissions: 0777
+
+        # Auto optmized flag (Optional)
+        # If this flag is true, each time you request an index, it will be optmized
+        # See http://framework.zend.com/manual/en/zend.search.lucene.index-creation.html#zend.search.lucene.index-creation.optimization
+        auto_optimized: false
+
+        # Query parser encoding (Optional)
+        # See http://framework.zend.com/manual/en/zend.search.lucene.searching.html#zend.search.lucene.searching.query_building.parsing
+        query_parser_encoding: "UTF-8" # (default: "")
