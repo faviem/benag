@@ -9,7 +9,7 @@
  */
 
 /**
- * Home page
+ * New product page
  *
  * @version 1.0 [17 Mai 2016]
  * @author Jacques Adjahoungbo <jtocson@gmail.com>

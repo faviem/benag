@@ -35,7 +35,7 @@
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <a class="btn btn-default round-xl btn-sm" href="{{ path("fos_user_security_logout") }}">{{ "Déconnexion"|trans }}</a>    
                 {% else %}
-                    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-default round-xl btn-sm">Démarrez</a>   
+                    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-default round-xl btn-sm">Mon emplacement</a>   
                 {% endif %}  
                 
                 

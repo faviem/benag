@@ -136,6 +136,7 @@ fos_js_routing:
         - get_ventes
         - vente_select_cities
         - vente_filter
+        - fos_user_security_login
         
 fos_rest:
     unauthorized_challenge: "Basic realm=\"Restricted Area\""
